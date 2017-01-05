@@ -1,0 +1,163 @@
+<apex:page standardStylesheets="true" tabStyle="Mix__c" controller="MixController" sidebar="true" >
+    <style>
+    /* This is for the full screen DIV */
+        .popupBackground {
+            /* Background color */
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+    
+            /* Dimensions */
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 998;
+            position: absolute;
+        
+            /* Mouse */
+            cursor:wait;
+        }
+ 
+        /* This is for the message DIV */
+        .PopupPanel {
+            /* Background color */
+            border: solid 2px blue;
+            background-color: white;
+ 
+            /* Dimensions */
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+            top: 50%;
+            height: 50px;
+            margin-top: -25px;
+            z-index: 999;
+            position: fixed;
+        
+            /* Mouse */
+            cursor:pointer;
+        }    
+    </style>
+    <apex:actionStatus id="statusSaveTrip" stopText="">
+        <apex:facet name="start">
+            <div>
+                <div class="popupBackground" />
+                <div class="PopupPanel">
+                    <table border="0" width="100%" height="100%">
+                        <tr>
+                            <td align="center"><b>Loading Songs...</b></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><img src="{!$Resource.PleaseWait}"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>   
+    
+    <c:sectionHeader iconsrc="{!$Resource.CCVLogo}" title="Mix Builder"  subTitle="{!Mix.Name}" rendered="{!Mix.Name!=null}"/> 
+    <c:sectionHeader iconsrc="{!$Resource.CCVLogo}" title="Mix Builder"  subTitle="New Mix" rendered="{!Mix.Name==null}"/> 
+    <apex:form >
+        <apex:pageBlock title="Mix Builder" mode="edit" >
+            <apex:pageBlockButtons location="Top">
+                <apex:commandButton id="saveBtn" value="Save" action="{!save}" />
+                <apex:commandButton id="cancelBtn" value="Cancel" action="{!cancel}" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:variable var="count" value="{!0}"/> 
+            <apex:pageMessages />
+            
+            <apex:pageBlockSection columns="2" showHeader="true" title="Mix Details">
+                <apex:inputField value="{!Mix.Name}" required="true"/>
+                <apex:inputField value="{!Mix.Customer__c}" required="true"/>
+            </apex:pageBlockSection>
+             
+            <apex:pageBlockSection columns="4" showHeader="true" title="Mix Summary" id="summary">                    
+                <apex:outputLabel style="font-weight:700" value="Track Count:" for="tc"/>
+                <apex:outputText id="tc">
+                    <span id="displayCount1"></span>   
+                </apex:outputText>                     
+                <apex:outputLabel style="font-weight:700" value="Track Length:" for="tl"/>                    
+                <apex:outputText id="tl" >
+                    <span id="displayLength1"></span>   
+                </apex:outputText>                    
+                <apex:outputLabel style="font-weight:700" value="Remaining Tracks:" for="rt"/>                    
+                <apex:outputText id="rt">
+                    <span id="displayRemainingTracks1"></span>   
+                </apex:outputText>                    
+                <apex:outputLabel style="font-weight:700" value="Remaining Length:" for="rtl"/>                    
+                <apex:outputText id="rml">
+                    <span id="displayRemainingLength1"></span> 
+                </apex:outputText>                                        
+            </apex:pageBlockSection>         
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:form id="songForm">
+        <apex:pageBlock title="Songs">             
+            <apex:panelGroup id="listViewFilterGrp">
+                <apex:outputLabel value="Song Genre Filter: "/>
+                <apex:selectList value="{!genreToShow}" size="1"  >                                     
+                    <apex:selectOptions value="{!genres}"/>                              
+                    <apex:actionSupport status="statusSaveTrip" event="onchange" action="{!filterByGenre}" reRender="songForm, messageBlock"/>
+                </apex:selectList>
+            </apex:panelGroup> 
+            <apex:variable id="cnt" var="cnt" value="{!0}"/>
+            <apex:pageBlockTable value="{!Song}" var="s" id="songs" >                  
+                <apex:column id="selectColumn"  title="Select">
+                    <apex:inputCheckbox id="inputCheckbox" onclick="calc({!s.song.Length_m__c},this)" value="{!s.bool}" >                              
+                        <apex:actionSupport event="onchange"   action="{!recalculateSummary}" reRender=" messageBlock">
+                            <apex:variable id="idWrapper" var="idWrapper" value="{!cnt}"/>
+                            <apex:param value="{!idWrapper}" name="wrapperId"/>  
+                            <apex:variable var="cnt" value="{!cnt+1}"/>  
+                        </apex:actionSupport>
+                    </apex:inputCheckbox>                  
+                </apex:column>
+                <apex:column value="{!s.song.Name}" title="Song Name"/>
+                <apex:column value="{!s.song.Genre__c}" title="Genre"/>
+                <apex:column value="{!s.song.Length_m__c}" title="Length (m)"/>
+            </apex:pageBlockTable>                
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="|<First" status="statusSaveTrip" action="{!FirstPage}" disabled="{!pageNumber==1}"  reRender="songForm" />
+                <apex:commandButton value="<Previous" status="statusSaveTrip" action="{!PreviousPage}" disabled="{!pageNumber==1}" reRender="songForm" />
+                <apex:outputText >  Page {!pageNumber} of {!totalPages}  </apex:outputText>
+                <apex:commandButton value="Next>" status="statusSaveTrip" action="{!NextPage}" disabled="{!pageNumber==totalPages}" reRender="songForm" />
+                <apex:commandButton value="Last>|" status="statusSaveTrip" action="{!LastPage}" disabled="{!pageNumber==totalPages}" reRender="songForm" />
+            </apex:pageBlockButtons>                    
+        </apex:pageBlock>
+    </apex:form>
+    <script type="text/javascript">
+        var checkedSum =parseFloat('{!trackLength}');
+        var countChecked ='{!trackCount}';
+        var out=document.getElementById("displayCount1");
+        out.innerHTML=countChecked;
+        var outSum=document.getElementById("displayLength1");
+        outSum.innerHTML=checkedSum.toFixed(2);
+        var outRemainingTracks = document.getElementById("displayRemainingTracks1");
+        outRemainingTracks.innerHTML=20-countChecked;
+        var outRemainingLength = document.getElementById("displayRemainingLength1");
+        outRemainingLength.innerHTML=(parseFloat(90.00)-checkedSum).toFixed(2);
+        function calc(length,me)
+        {
+            if (me.checked)
+            {
+                countChecked++;
+                checkedSum+=length;
+            }
+            else
+            {
+                countChecked--; 
+                checkedSum-=length
+            }       
+            var out=document.getElementById("displayCount1");
+            out.innerHTML=countChecked;
+            var outSum=document.getElementById("displayLength1");
+            outSum.innerHTML=checkedSum.toFixed(2);
+            var outRemainingTracks = document.getElementById("displayRemainingTracks1");
+            outRemainingTracks.innerHTML=20-countChecked;
+            var outRemainingLength = document.getElementById("displayRemainingLength1");
+            outRemainingLength.innerHTML=(parseFloat(90.00)-checkedSum).toFixed(2);
+        };      
+    </script>
+</apex:page>

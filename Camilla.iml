@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="salesforce.module" version="4">
+  <component name="ComponentSet">
+    <type2Names>
+      <SFMetaTypeNamesState type="APEX_CLASS" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="MixController" />
+            <option value="MixController_Test" />
+            <option value="MixTriggerHandler" />
+            <option value="TestDataFactory" />
+            <option value="TrackService" />
+            <option value="TrackTriggerHandler" />
+            <option value="TrackTrigger_Test" />
+            <option value="TriggerTemplate" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="CUSTOM_OBJECT" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="Account" />
+            <option value="AccountCleanInfo" />
+            <option value="AccountContactRole" />
+            <option value="Activity" />
+            <option value="Asset" />
+            <option value="AssistantProgress" />
+            <option value="Campaign" />
+            <option value="CampaignMember" />
+            <option value="Case" />
+            <option value="CaseContactRole" />
+            <option value="Contact" />
+            <option value="ContactCleanInfo" />
+            <option value="ContentVersion" />
+            <option value="Contract" />
+            <option value="ContractContactRole" />
+            <option value="DandBCompany" />
+            <option value="DuplicateRecordItem" />
+            <option value="DuplicateRecordSet" />
+            <option value="EmailMessage" />
+            <option value="Event" />
+            <option value="ExchangeUserMapping" />
+            <option value="FeedItem" />
+            <option value="ForecastingCategoryMapping" />
+            <option value="Idea" />
+            <option value="Invoice_Statement__c" />
+            <option value="Lead" />
+            <option value="LeadCleanInfo" />
+            <option value="Line_Item__c" />
+            <option value="Macro" />
+            <option value="MacroAction" />
+            <option value="MacroInstruction" />
+            <option value="Merchandise__c" />
+            <option value="Mix__c" />
+            <option value="Opportunity" />
+            <option value="OpportunityCompetitor" />
+            <option value="OpportunityContactRole" />
+            <option value="OpportunityLineItem" />
+            <option value="Order" />
+            <option value="OrderItem" />
+            <option value="PartnerRole" />
+            <option value="Pricebook2" />
+            <option value="PricebookEntry" />
+            <option value="Product2" />
+            <option value="Recipe__c" />
+            <option value="Site" />
+            <option value="SocialPersona" />
+            <option value="Solution" />
+            <option value="Song__c" />
+            <option value="StreamingChannel" />
+            <option value="Task" />
+            <option value="Track__c" />
+            <option value="User" />
+            <option value="UserProvisioningRequest" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="APEX_TRIGGER" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="MixTrigger" />
+            <option value="TrackTrigger" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="APEX_PAGE" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="AccountCustom" />
+            <option value="NewMixPage" />
+            <option value="RecipeList" />
+            <option value="bootstrap" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="STATIC_RESOURCE" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="CCVLogo" />
+            <option value="PleaseWait" />
+            <option value="bootstrap" />
+            <option value="recipe_star" />
+            <option value="summaryHandler" />
+            <option value="testSongs" />
+            <option value="vs__VisualStrap_Resources" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+    </type2Names>
+    <builtIn>
+      <type value="CUSTOM_OBJECT" />
+      <type value="CUSTOM_FIELD" />
+      <type value="WEB_LINK" />
+    </builtIn>
+    <unmananged>
+      <type value="CUSTOM_TAB" />
+      <type value="INSTALLED_PACKAGE" />
+      <type value="APPROVAL_PROCESS" />
+      <type value="ASSIGNMENT_RULES" />
+      <type value="REPORT" />
+      <type value="SHARING_SET" />
+      <type value="PERMISSION_SET" />
+      <type value="TRANSLATIONS" />
+      <type value="COMMUNITY_TEMPLATE_DEFINITION" />
+      <type value="CUSTOM_APPLICATION" />
+      <type value="QUICK_ACTION" />
+      <type value="WEB_LINK" />
+      <type value="COMMUNITY" />
+      <type value="HOME_PAGE_LAYOUT" />
+      <type value="APEX_CLASS" />
+      <type value="CUSTOM_SITE" />
+      <type value="PORTAL" />
+      <type value="CUSTOM_OBJECT" />
+      <type value="CUSTOM_LABELS" />
+      <type value="PLATFORM_CACHE_PARTITION" />
+      <type value="LAYOUT" />
+      <type value="COMMUNITY_THEME_DEFINITION" />
+      <type value="PROFILE" />
+      <type value="CUSTOM_METADATA" />
+      <type value="QUEUE" />
+      <type value="WORKFLOW" />
+      <type value="SITE_DOT_COM" />
+      <type value="CALL_CENTER" />
+      <type value="POST_TEMPLATE" />
+      <type value="GROUP" />
+      <type value="CUSTOM_FIELD" />
+      <type value="FLOW_DEFINITION" />
+      <type value="APEX_TRIGGER" />
+      <type value="APEX_PAGE" />
+      <type value="SHARING_RULES" />
+      <type value="FLOW" />
+      <type value="SETTINGS" />
+      <type value="HOME_PAGE_COMPONENT" />
+      <type value="REPORT_TYPE" />
+      <type value="ROLE" />
+      <type value="STATIC_RESOURCE" />
+      <type value="APEX_COMPONENT" />
+      <type value="CUSTOM_OBJECT_TRANSLATION" />
+    </unmananged>
+    <managed>
+      <type value="APEX_CLASS" />
+      <type value="CUSTOM_OBJECT" />
+      <type value="CUSTOM_FIELD" />
+      <type value="WEB_LINK" />
+    </managed>
+    <components>
+      <SFMetaComponentState type="ApexClass" chosen="true" isMajor="true" />
+      <SFMetaComponentState type="ApexComponent" isMajor="true" />
+      <SFMetaComponentState type="ApexPage" chosen="true" isMajor="true" />
+      <SFMetaComponentState type="ApexTrigger" chosen="true" isMajor="true" />
+      <SFMetaComponentState type="CustomApplication" isMajor="true" />
+      <SFMetaComponentState type="CustomLabels" isMajor="true" />
+      <SFMetaComponentState type="CustomObject" chosen="true" isMajor="true" />
+      <SFMetaComponentState type="CustomTab" isMajor="true" />
+      <SFMetaComponentState type="Flow" isMajor="true" />
+      <SFMetaComponentState type="InstalledPackage" isMajor="true" />
+      <SFMetaComponentState type="Layout" isMajor="true" />
+      <SFMetaComponentState type="StaticResource" chosen="true" isMajor="true" />
+      <SFMetaComponentState type="Workflow" isMajor="true" />
+      <SFMetaComponentState type="ApprovalProcess" />
+      <SFMetaComponentState type="AssignmentRule" />
+      <SFMetaComponentState type="CallCenter" />
+      <SFMetaComponentState type="Community" />
+      <SFMetaComponentState type="CommunityTemplateDefinition" />
+      <SFMetaComponentState type="CommunityThemeDefinition" />
+      <SFMetaComponentState type="CustomMetadata" />
+      <SFMetaComponentState type="CustomObjectTranslation" />
+      <SFMetaComponentState type="CustomSite" />
+      <SFMetaComponentState type="FlowDefinition" />
+      <SFMetaComponentState type="Group" />
+      <SFMetaComponentState type="HomePageComponent" />
+      <SFMetaComponentState type="HomePageLayout" />
+      <SFMetaComponentState type="PermissionSet" />
+      <SFMetaComponentState type="PlatformCachePartition" />
+      <SFMetaComponentState type="Portal" />
+      <SFMetaComponentState type="PostTemplate" />
+      <SFMetaComponentState type="Profile" />
+      <SFMetaComponentState type="Queue" />
+      <SFMetaComponentState type="QuickAction" />
+      <SFMetaComponentState type="Report" />
+      <SFMetaComponentState type="ReportType" />
+      <SFMetaComponentState type="Role" />
+      <SFMetaComponentState type="Settings" />
+      <SFMetaComponentState type="SharingRules" />
+      <SFMetaComponentState type="SharingSet" />
+      <SFMetaComponentState type="SiteDotCom" />
+      <SFMetaComponentState type="Translations" />
+    </components>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/unpackaged" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

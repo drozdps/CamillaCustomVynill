@@ -2,20 +2,6 @@
 <module type="salesforce.module" version="4">
   <component name="ComponentSet">
     <type2Names>
-      <SFMetaTypeNamesState type="APEX_CLASS" setAll="true">
-        <option name="myNames">
-          <set>
-            <option value="MixController" />
-            <option value="MixController_Test" />
-            <option value="MixTriggerHandler" />
-            <option value="TestDataFactory" />
-            <option value="TrackService" />
-            <option value="TrackTriggerHandler" />
-            <option value="TrackTrigger_Test" />
-            <option value="TriggerTemplate" />
-          </set>
-        </option>
-      </SFMetaTypeNamesState>
       <SFMetaTypeNamesState type="CUSTOM_OBJECT" setAll="true">
         <option name="myNames">
           <set>
@@ -75,24 +61,6 @@
           </set>
         </option>
       </SFMetaTypeNamesState>
-      <SFMetaTypeNamesState type="APEX_TRIGGER" setAll="true">
-        <option name="myNames">
-          <set>
-            <option value="MixTrigger" />
-            <option value="TrackTrigger" />
-          </set>
-        </option>
-      </SFMetaTypeNamesState>
-      <SFMetaTypeNamesState type="APEX_PAGE" setAll="true">
-        <option name="myNames">
-          <set>
-            <option value="AccountCustom" />
-            <option value="NewMixPage" />
-            <option value="RecipeList" />
-            <option value="bootstrap" />
-          </set>
-        </option>
-      </SFMetaTypeNamesState>
       <SFMetaTypeNamesState type="STATIC_RESOURCE" setAll="true">
         <option name="myNames">
           <set>
@@ -106,62 +74,94 @@
           </set>
         </option>
       </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="APEX_PAGE" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="AccountCustom" />
+            <option value="NewMixPage" />
+            <option value="RecipeList" />
+            <option value="bootstrap" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="APEX_TRIGGER" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="MixTrigger" />
+            <option value="TrackTrigger" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
+      <SFMetaTypeNamesState type="APEX_CLASS" setAll="true">
+        <option name="myNames">
+          <set>
+            <option value="MixController" />
+            <option value="MixController_Test" />
+            <option value="MixTriggerHandler" />
+            <option value="TestDataFactory" />
+            <option value="TrackService" />
+            <option value="TrackTriggerHandler" />
+            <option value="TrackTrigger_Test" />
+            <option value="TriggerTemplate" />
+          </set>
+        </option>
+      </SFMetaTypeNamesState>
     </type2Names>
     <builtIn>
       <type value="CUSTOM_OBJECT" />
-      <type value="CUSTOM_FIELD" />
       <type value="WEB_LINK" />
+      <type value="CUSTOM_FIELD" />
     </builtIn>
     <unmananged>
-      <type value="CUSTOM_TAB" />
-      <type value="INSTALLED_PACKAGE" />
-      <type value="APPROVAL_PROCESS" />
-      <type value="ASSIGNMENT_RULES" />
-      <type value="REPORT" />
-      <type value="SHARING_SET" />
-      <type value="PERMISSION_SET" />
-      <type value="TRANSLATIONS" />
-      <type value="COMMUNITY_TEMPLATE_DEFINITION" />
+      <type value="CUSTOM_OBJECT" />
+      <type value="STATIC_RESOURCE" />
       <type value="CUSTOM_APPLICATION" />
       <type value="QUICK_ACTION" />
-      <type value="WEB_LINK" />
+      <type value="CUSTOM_SITE" />
+      <type value="APEX_PAGE" />
+      <type value="SITE_DOT_COM" />
+      <type value="PORTAL" />
+      <type value="CUSTOM_OBJECT_TRANSLATION" />
+      <type value="PROFILE" />
+      <type value="REPORT_TYPE" />
+      <type value="CUSTOM_FIELD" />
+      <type value="REPORT" />
+      <type value="COMMUNITY_THEME_DEFINITION" />
+      <type value="LAYOUT" />
+      <type value="CUSTOM_METADATA" />
+      <type value="CALL_CENTER" />
+      <type value="ASSIGNMENT_RULES" />
+      <type value="CUSTOM_LABELS" />
+      <type value="QUEUE" />
+      <type value="ROLE" />
+      <type value="CUSTOM_TAB" />
+      <type value="APPROVAL_PROCESS" />
+      <type value="INSTALLED_PACKAGE" />
+      <type value="PLATFORM_CACHE_PARTITION" />
+      <type value="APEX_COMPONENT" />
+      <type value="GROUP" />
+      <type value="PERMISSION_SET" />
+      <type value="APEX_TRIGGER" />
+      <type value="HOME_PAGE_COMPONENT" />
+      <type value="SHARING_SET" />
       <type value="COMMUNITY" />
+      <type value="WEB_LINK" />
+      <type value="POST_TEMPLATE" />
+      <type value="SETTINGS" />
+      <type value="FLOW" />
+      <type value="COMMUNITY_TEMPLATE_DEFINITION" />
+      <type value="SHARING_RULES" />
+      <type value="WORKFLOW" />
+      <type value="FLOW_DEFINITION" />
       <type value="HOME_PAGE_LAYOUT" />
       <type value="APEX_CLASS" />
-      <type value="CUSTOM_SITE" />
-      <type value="PORTAL" />
-      <type value="CUSTOM_OBJECT" />
-      <type value="CUSTOM_LABELS" />
-      <type value="PLATFORM_CACHE_PARTITION" />
-      <type value="LAYOUT" />
-      <type value="COMMUNITY_THEME_DEFINITION" />
-      <type value="PROFILE" />
-      <type value="CUSTOM_METADATA" />
-      <type value="QUEUE" />
-      <type value="WORKFLOW" />
-      <type value="SITE_DOT_COM" />
-      <type value="CALL_CENTER" />
-      <type value="POST_TEMPLATE" />
-      <type value="GROUP" />
-      <type value="CUSTOM_FIELD" />
-      <type value="FLOW_DEFINITION" />
-      <type value="APEX_TRIGGER" />
-      <type value="APEX_PAGE" />
-      <type value="SHARING_RULES" />
-      <type value="FLOW" />
-      <type value="SETTINGS" />
-      <type value="HOME_PAGE_COMPONENT" />
-      <type value="REPORT_TYPE" />
-      <type value="ROLE" />
-      <type value="STATIC_RESOURCE" />
-      <type value="APEX_COMPONENT" />
-      <type value="CUSTOM_OBJECT_TRANSLATION" />
+      <type value="TRANSLATIONS" />
     </unmananged>
     <managed>
-      <type value="APEX_CLASS" />
       <type value="CUSTOM_OBJECT" />
-      <type value="CUSTOM_FIELD" />
       <type value="WEB_LINK" />
+      <type value="APEX_CLASS" />
+      <type value="CUSTOM_FIELD" />
     </managed>
     <components>
       <SFMetaComponentState type="ApexClass" chosen="true" isMajor="true" />

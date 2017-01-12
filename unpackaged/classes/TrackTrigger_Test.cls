@@ -1,5 +1,5 @@
 @isTest
-public class TrackTrigger_Test{
+public class    TrackTrigger_Test{
 
     static final Integer TEST_MIXES_COUNT = 5;
     static final Integer MAX_TRACKS_COUNT = 15;

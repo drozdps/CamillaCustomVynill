@@ -28,8 +28,7 @@ public class MixController
 
     public MixController()
     {
-        // Use Database.query() instead if Database.getQueryLocator() to reinitialize controller if database is changed
-        setCon = new ApexPages.StandardSetController(Database.query(query)); 
+        setCon = new ApexPages.StandardSetController(Database.query(String.escapeSingleQuotes(query)));
         setCon.setpagesize(RECORDS_PER_PAGE);
         selectedSongs = new Map <id,Song__c>();
         trackLength = 0;
@@ -120,10 +119,10 @@ public class MixController
     public void filterByGenre()
     {
         if ( !genreToShow.equals('--Any Genre--') )
-            query='SELECT Name,Genre__c,Length_m__c FROM Song__c WHERE Genre__c=\''+genreToShow+'\'';
+            query='SELECT Name,Genre__c,Length_m__c FROM Song__c WHERE Genre__c="'+genreToShow+'"';
         else
             query='SELECT Name,Genre__c,Length_m__c FROM Song__c';
-        setCon = new ApexPages.StandardSetController(Database.query(query)); 
+        setCon = new ApexPages.StandardSetController(Database.query(String.escapeSingleQuotes(query)));
         setCon.setpagesize(RECORDS_PER_PAGE);
     }
 
